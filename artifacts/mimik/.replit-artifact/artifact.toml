@@ -1,0 +1,31 @@
+kind = "web"
+previewPath = "/"
+title = "MIMIiK — Coming Soon"
+version = "1.0.0"
+id = "artifacts/mimik"
+router = "path"
+
+[[integratedSkills]]
+name = "react-vite"
+version = "1.0.0"
+
+[[services]]
+name = "web"
+paths = [ "/" ]
+localPort = 22415
+
+[services.development]
+run = "pnpm --filter @workspace/mimik run dev"
+
+[services.production]
+build = [ "pnpm", "--filter", "@workspace/mimik", "run", "build" ]
+publicDir = "artifacts/mimik/dist/public"
+serve = "static"
+
+[[services.production.rewrites]]
+from = "/*"
+to = "/index.html"
+
+[services.env]
+PORT = "22415"
+BASE_PATH = "/"
