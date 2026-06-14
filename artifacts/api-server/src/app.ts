@@ -1,3 +1,6 @@
+import router from "./routes/index.js";
+import { logger } from "./lib/logger.js";
+
 app.use(
   pinoHttp({
     logger,
