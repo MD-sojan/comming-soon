@@ -1,5 +1,5 @@
 app.use(
-  pinoHttp.default({
+  pinoHttp({
     logger,
     serializers: {
       req(req: any) {
@@ -18,3 +18,5 @@ app.use(
     },
   }),
 );
+
+export default app;
